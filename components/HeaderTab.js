@@ -19,7 +19,7 @@ const HeaderTab = () => {
       borderRadius: 25,
       padding: 8,}}>
       <Fontisto name="eye" size={24} color="white" />
-      <Text style = { {marginLeft: 8, fontWeight: "bold", fontSize: 15, color: "white" } }>Talent</Text>
+      <Text style = { {marginLeft: 8, fontWeight: "bold", fontSize: 15, color: "white" } }>Explore</Text>
       </Pressable>
 
       <Pressable style={{

@@ -10,8 +10,8 @@ import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
-import SearchScreen from './screens/SearchScreen';
-import TalentScreen from './screens/SearchScreen';
+import SearchScreen from './components/SearchScreen';
+import TalentScreen from './screens/TalentScreen';
 
 
 
@@ -76,6 +76,9 @@ const StackNavigator = () => {
   <Stack.Screen name="Main" component={BottomTabs} options={{headerShown:false}} />
   <Stack.Screen name="Search" component={SearchScreen} options={{headerShown:false}}/>
   <Stack.Screen name="Talents" component={TalentScreen}/>
+  {/* <Stack.Screnn name="Boookings" component={BookingScreen}/>
+  <Stack.screen name="SavedScreen" component={SavedScreen}/> */}
+  
       </Stack.Navigator>
     </NavigationContainer>
   )

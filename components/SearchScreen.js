@@ -1,11 +1,11 @@
-import React, { useLayoutEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import PropertyCard from '../components/PropertyCard';
-import { ScrollView } from 'react-native-web';
+import { StyleSheet, Text, View, SafeAreaView, TextInput } from 'react-native'
+import React from 'react'
+import { Feather } from '@expo/vector-icons';
+import { useState } from 'react';
+import SearchResults from '../screens/SearchResults';
 
-const TalentScreen = () => {
-  const route = useRoute();
+const SearchScreen = () => {
+  const[input, setInput] = useState("")
   const data = [
     {
       id: "0",
@@ -68,47 +68,26 @@ const TalentScreen = () => {
       }]
     }
   ];
-  const navigation = useNavigation();
-
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: true,
-      title: "Talent Search Page",
-      headerTitleStyle: {
-        fontSize: 20,
-        fontWeight: "bold",
-        color: "black"
-      },
-      headerStyle: {
-        backgroundColor: "#B6BBC4",
-        height: 70,
-        borderBottomColor: "transparent",
-        shadowColor: "transparent",
-      },
-    });
-  }, [navigation]);
-
+  // console.log(input);
   return (
-   
-      <View style={{backgroundColor: "#f5f5f5"}}>
-      {data
-        ?.filter((item) => item.image === route.params.image)
-        .map((item) =>
-          item.properties.map((property, index) => (
-            <PropertyCard 
-            key={index}
-            name={route.params.name}
-            selectedDates={route.params.selectedDates}
-            property={property} 
-            />
-          ))
-        )}
-   
-    </View>
-  );
-};
+    <SafeAreaView>
+      <View style={{ padding: 10, 
+        margin: 10, 
+        flexDirection: "row", 
+        alignItems: "center", 
+        justifyContent: "center",
+        borderColor: "black",
+        borderWidth: 4,
+        borderRadius: 10 }}>
+        <TextInput value={input} onChangeText={(text) => setInput(text)} placeholder="Enter Talent's  name" />
+        <Feather name="search" size={22} color="black" />
+      </View>
 
-export default TalentScreen;
+      <SearchResults data={data} input={input} setInput={setInput}/>
+    </SafeAreaView>
+  )
+}
 
-const styles = StyleSheet.create({});
+export default SearchScreen
 
+const styles = StyleSheet.create({})

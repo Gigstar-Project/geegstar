@@ -4,5 +4,5 @@
     "plyconfig.json": "jsonc"
   },
   "editor.suggest.snippetsPreventQuickSuggestions": false,
-  "aiXcoder.showTrayIcon": true
+  "aiXcoder.showTrayIcon": false
 }
